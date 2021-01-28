@@ -25,13 +25,13 @@ Routes.get('/', async (ctx) => {
         str = sha1(str);
         if (ctx.query.signature === str) {
             // 说明请求来自于微信
-            ctx.response.body = echostr;
+            ctx.response.body = ctx.query.echostr;
             return;
         }
         ctx.response.body = str;
         return;
     }
     // console.log(ctx)
-    ctx.response.body = ctx.query;
+    ctx.response.body = ctx.query.id;
 })
 module.exports = Routes;
