@@ -16,9 +16,10 @@ Routes.get('/', async (ctx) => {
     // let _sql = 'select * from test'
     // const result = await query(_sql)
     // ctx.response.body = result
-    console.log(ctx.header.token);
+    // console.log(ctx.header.token);
     if (ctx.query.signature && ctx.query.timestamp && ctx.query.nonce && ctx.query.echostr) {
-        let arr = [ctx.header.token, ctx.query.timestamp, ctx.query.nonce]
+        let arr = ['wechat_apcesk', ctx.query.timestamp, ctx.query.nonce]
+        console.log(arr)
         arr.sort();
         let str = arr.join('');
         console.log(str);
@@ -27,11 +28,12 @@ Routes.get('/', async (ctx) => {
             // 说明请求来自于微信
             ctx.response.body = ctx.query.echostr;
             return;
+        } else {
+            ctx.response.body = false;
+            return;
         }
-        ctx.response.body = str;
-        return;
     }
-    // console.log(ctx)
+    console.log(ctx)
     ctx.response.body = ctx.query.id;
 })
 module.exports = Routes;
