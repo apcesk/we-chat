@@ -12,7 +12,7 @@ const domain = 'test.apcesk.com';
  * @originUrl 允许跨域的访问路径
  */
 const config = {
-    port: '8080',
+    port: '3001',
     mysql: {
         database: 'we_chat',
         user: 'root',

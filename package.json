@@ -4,7 +4,8 @@
   "description": "公众号后台",
   "main": "app.js",
   "scripts": {
-    "test": "npm start"
+    "test": "npm start",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
